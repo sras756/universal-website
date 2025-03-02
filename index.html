@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Website</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fdbb2d; /* Vibrant yellow */
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #ffcc33; /* Light yellow */
+        }
+
+        button {
+            background: #fdbb2d;
+            color: #1a2a6c;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background: #ffcc33;
+            transform: translateY(-2px);
+        }
+
+        /* Search Bar */
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #333;
+            color: white;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            background: #1a2a6c; /* Dark blue */
+            color: white;
+        }
+
+        .search-bar button:hover {
+            background: #2575fc; /* Bright blue */
+        }
+
+        /* Video Section */
+        .video-section {
+            margin-top: 30px;
+        }
+
+        .video-section h2 {
+            color: #fdbb2d; /* Vibrant yellow */
+        }
+
+        .video-player iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Upload Section */
+        .upload-section {
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .upload-section h2 {
+            color: #fdbb2d; /* Vibrant yellow */
+        }
+
+        .upload-section label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #fdbb2d; /* Vibrant yellow */
+        }
+
+        .upload-section input[type="text"],
+        .upload-section textarea,
+        .upload-section input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #333;
+            color: white;
+        }
+
+        .upload-section textarea {
+            resize: vertical;
+        }
+
+        .upload-section ul {
+            margin: 10px 0 20px;
+            padding-left: 20px;
+        }
+
+        .upload-section ul li {
+            margin-bottom: 5px;
+            color: #ccc;
+        }
+
+        #upload-status {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #fdbb2d; /* Vibrant yellow */
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            margin-top: 30px;
+        }
+
+        .gallery-section h2 {
+            color: #fdbb2d; /* Vibrant yellow */
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .gallery img,
+        .gallery video {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 8px;
+        }
+
+        /* Create APK Button */
+        .create-apk {
+            margin-top: 30px;
+        }
+
+        .create-apk button {
+            background: #1a2a6c; /* Dark blue */
+            color: white;
+        }
+
+        .create-apk button:hover {
+            background: #2575fc; /* Bright blue */
+        }
+
+        /* APK Download Link */
+        #apk-download-link {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #fdbb2d; /* Vibrant yellow */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Universal Website</h1>
+        <p>Explore everything in one place!</p>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search for content...">
+            <button onclick="searchContent()">Search</button>
+        </div>
+
+        <!-- Crunchyroll-like Video Section -->
+        <div class="video-section">
+            <h2>Watch Videos</h2>
+            <div class="video-player">
+                <iframe src="https://www.youtube.com/embed/?list=UUrayanshahvlogs5464" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Upload Anime Section -->
+        <div class="upload-section">
+            <h2>Upload Anime</h2>
+            <form id="upload-form">
+                <label for="anime-title">Anime Title:</label>
+                <input type="text" id="anime-title" name="anime-title" required>
+
+                <label for="anime-description">Description:</label>
+                <textarea id="anime-description" name="anime-description" rows="4" required></textarea>
+
+                <label for="upload-anime">Choose File (MP4, MKV, AVI):</label>
+                <input type="file" id="upload-anime" name="upload-anime" accept=".mp4,.mkv,.avi" required>
+
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                    <li>File size must be less than 1GB.</li>
+                    <li>Supported formats: MP4, MKV, AVI.</li>
+                    <li>Provide a valid title and description.</li>
+                </ul>
+
+                <button type="submit">Upload Anime</button>
+            </form>
+            <p id="upload-status"></p>
+        </div>
+
+        <!-- Gallery Section -->
+        <div class="gallery-section">
+            <h2>Gallery</h2>
+            <input type="file" id="gallery-input" accept="image/*, video/*" multiple>
+            <div class="gallery" id="gallery"></div>
+        </div>
+
+        <!-- Create APK Button -->
+        <div class="create-apk">
+            <button onclick="createAPK()">Create APK</button>
+            <p id="apk-download-link"></p>
+        </div>
+    </div>
+
+    <script>
+        // Search Functionality
+        function searchContent() {
+            const query = document.getElementById('search-input').value;
+            if (query.trim() === "") {
+                alert("Please enter a search term.");
+                return;
+            }
+            alert(`Searching for: ${query}`);
+        }
+
+        // Upload Anime Functionality
+        const uploadForm = document.getElementById('upload-form');
+        const uploadStatus = document.getElementById('upload-status');
+
+        uploadForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent form submission
+
+            const animeTitle = document.getElementById('anime-title').value;
+            const animeDescription = document.getElementById('anime-description').value;
+            const animeFile = document.getElementById('upload-anime').files[0];
+
+            // Validate file
+            if (!animeFile) {
+                uploadStatus.textContent = "Please select a file to upload.";
+                return;
+            }
+
+            // Check file size (1GB limit)
+            const maxFileSize = 1024 * 1024 * 1024; // 1GB in bytes
+            if (animeFile.size > maxFileSize) {
+                uploadStatus.textContent = "File size must be less than 1GB.";
+                return;
+            }
+
+            // Check file format
+            const allowedFormats = ['mp4', 'mkv', 'avi'];
+            const fileExtension = animeFile.name.split('.').pop().toLowerCase();
+            if (!allowedFormats.includes(fileExtension)) {
+                uploadStatus.textContent = "Supported formats: MP4, MKV, AVI.";
+                return;
+            }
+
+            // Simulate upload process
+            uploadStatus.textContent = `Uploading "${animeTitle}"...`;
+            setTimeout(() => {
+                uploadStatus.innerHTML = `
+                    <strong>Upload Successful!</strong><br>
+                    <strong>Title:</strong> ${animeTitle}<br>
+                    <strong>Description:</strong> ${animeDescription}<br>
+                    <strong>File:</strong> ${animeFile.name} (${(animeFile.size / 1024 / 1024).toFixed(2)} MB)
+                `;
+            }, 2000); // Simulate a 2-second upload delay
+        });
+
+        // Gallery Functionality
+        const galleryInput = document.getElementById('gallery-input');
+        const gallery = document.getElementById('gallery');
+
+        galleryInput.addEventListener('change', (event) => {
+            const files = event.target.files;
+            gallery.innerHTML = ""; // Clear previous content
+
+            for (const file of files) {
+                const fileType = file.type.split('/')[0]; // image or video
+                const fileURL = URL.createObjectURL(file);
+
+                if (fileType === 'image') {
+                    const img = document.createElement('img');
+                    img.src = fileURL;
+                    gallery.appendChild(img);
+                } else if (fileType === 'video') {
+                    const video = document.createElement('video');
+                    video.src = fileURL;
+                    video.controls = true;
+                    gallery.appendChild(video);
+                }
+            }
+        });
+
+        // Create APK Functionality
+        function createAPK() {
+            const apkDownloadLink = document.getElementById('apk-download-link');
+
+            // Simulate APK generation process
+            apkDownloadLink.textContent = "Generating APK file...";
+            setTimeout(() => {
+                apkDownloadLink.innerHTML = `
+                    <strong>APK Generated!</strong><br>
+                    <a href="#" download="universal_app.apk">Download APK</a>
+                `;
+            }, 3000); // Simulate a 3-second delay
+        }
+    </script>
+</body>
+</html>
